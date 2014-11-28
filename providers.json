@@ -1,0 +1,36 @@
+{
+	"facebook": {
+		"provider": "facebook",
+		"module": "passport-facebook",
+		"clientID": "{facebook-client-id-1}",
+		"clientSecret": "{facebook-client-secret-1}",
+		"callbackURL": "http://localhost:5000/auth/facebook/callback",
+		"authPath": "/auth/facebook",
+		"callbackPath": "/auth/facebook/callback",
+		"successRedirect": "/auth/account",
+		"scope": ["email"]
+	},
+	"google": {
+		"provider": "google",
+		"module": "passport-google-oauth",
+		"strategy": "OAuth2Strategy",
+		"clientID": "694069861300-ef6p85lq20vp5rlbb7fh0qunr3fuv4kb.apps.googleusercontent.com",
+		"clientSecret": "HTgjVKxTNyrqfVMoDL_cBUMz",
+		"callbackURL": "http://localhost:5000/auth/google/callback",
+		"authPath": "/auth/google",
+		"callbackPath": "/auth/google/callback",
+		"successRedirect": "/auth/account",
+		"scope": ["email", "profile"]
+	},
+	"twitter": {
+		"provider": "twitter",
+		"authScheme": "oauth",
+		"module": "passport-twitter",
+		"callbackURL": "http://localhost:5000/auth/twitter/callback",
+		"authPath": "/auth/twitter",
+		"callbackPath": "/auth/twitter/callback",
+		"successRedirect": "/auth/account",
+		"consumerKey": "{twitter-consumer-key}",
+		"consumerSecret": "{twitter-consumer-secret}"
+	}
+}
