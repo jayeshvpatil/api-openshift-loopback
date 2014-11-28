@@ -18,13 +18,6 @@ gulp.task('nodemon', function () {
 });
 
 gulp.task('default', function () {
-
 	plugins.util.log(plugins.util.colors.green('Default'), plugins.util.env);
-
 	runSequence(['nodemon']);
-
 });
-
-console.dir(plugins);
-
-module.exports = gulp;
