@@ -5,5 +5,5 @@ var util = require('util'),
 module.exports = {
 	port: server_port,
 	url: util.format('http://%s:%s/', server_ip, server_port),
-	host: = server_ip
+	host: server_ip
 };
