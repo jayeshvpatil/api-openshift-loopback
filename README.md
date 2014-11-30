@@ -1,1 +1,1 @@
-This package contains the 3zixty api server, mobile and web app.
+This package contains the 3zixty api server.

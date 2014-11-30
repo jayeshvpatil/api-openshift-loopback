@@ -2,7 +2,6 @@
 var passport = require('passport');
 
 module.exports = function (req, res, next) {
-	var li = req.authCode;
 	passport.authenticate(req.query.provider, {
 		autoLogin: true,
 		callbackURL: 'http://www.' + req.query.provider + '.com'
