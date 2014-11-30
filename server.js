@@ -37,23 +37,15 @@ if (devEnvironment) {
 }
 
 app.use(function (req, res, next) {
-	res.setHeader('X-Powered-By', '3zixty');
+	res.header('Access-Control-Allow-Origin', '*');
+	res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+	res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization');
+	res.header('X-Powered-By', '3zixty');
 	res.removeHeader('Vary');
 	next();
 });
 
-app.use(function (req, res, next) {
-	res.header('Access-Control-Allow-Origin', '*');
-	res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-	res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization');
-	next();
-});
-
 app.use(loopback.compress());
-
-app.use(loopback.urlNotFound());
-
-app.use(loopback.errorHandler());
 
 app.get('/auth/current', function (req, res, next) {
 	if (!req.isAuthenticated || !req.isAuthenticated()) {
@@ -70,6 +62,10 @@ app.get('/auth/logout', function (req, res, next) {
 });
 
 app.get('/auth/external', services.externalAuth);
+
+app.use(loopback.urlNotFound());
+
+app.use(loopback.errorHandler());
 
 // start the server if `$ node server.js`
 if (require.main === module) {
