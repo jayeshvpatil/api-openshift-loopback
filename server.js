@@ -3,6 +3,7 @@
 var loopback = require('loopback');
 var services = require('./services');
 var app = module.exports = loopback();
+var devEnvironment = (!process.env.NODE_ENV || process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'local');
 
 //Bootstrap the rest api
 require('loopback-boot')(app, __dirname);
@@ -29,21 +30,19 @@ try {
 	process.exit(1); // fatal
 }
 
-if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'local') {
+if (devEnvironment) {
 	// -- Mount static files here only for local development --
 	var path = require('path');
 	app.use(loopback.static(path.resolve(__dirname, '../mobile/www')));
 }
 
 app.use(function (req, res, next) {
-	console.log('setHeader');
 	res.setHeader('X-Powered-By', '3zixty');
 	res.removeHeader('Vary');
 	next();
 });
 
 app.use(function (req, res, next) {
-	console.log('header');
 	res.header('Access-Control-Allow-Origin', '*');
 	res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
 	res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization');
@@ -68,7 +67,6 @@ app.get('/auth/current', function (req, res, next) {
 app.get('/auth/logout', function (req, res, next) {
 	req.logout();
 	res.redirect('/');
-	console.log('Logged out', req.user)
 });
 
 app.get('/auth/external', services.externalAuth);
@@ -77,6 +75,8 @@ app.get('/auth/external', services.externalAuth);
 if (require.main === module) {
 	app.listen(function () {
 		app.emit('started');
-		console.log('Web server listening at: %s', app.get('url'));
+		if (devEnvironment) {
+			console.log('Web server listening at: %s', app.get('url'));
+		}
 	});
 }
