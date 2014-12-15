@@ -1,7 +1,7 @@
 'use strict';
 
 var loopback = require('loopback');
-var services = require('./services');
+var resources = require('./resources');
 var app = module.exports = loopback();
 var devEnvironment = (!process.env.NODE_ENV || process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'local');
 
@@ -61,7 +61,7 @@ app.get('/auth/logout', function (req, res, next) {
 	res.redirect('/');
 });
 
-app.get('/auth/external', services.externalAuth);
+app.get('/auth/external', resources.externalAuth);
 
 app.use(loopback.urlNotFound());
 

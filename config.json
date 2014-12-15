@@ -3,5 +3,11 @@
 	"host": "0.0.0.0",
 	"port": 5000,
 	"url": "http://localhost:5000/",
-	"enableExplorer": true
+	"enableExplorer": true,
+	"foursquare": {
+		"clientId": "0YW3QJTM0CI5W02CTAKJTC0HPDJ4ZEDAMDA30CNOZWZRAZKY",
+		"clientSecret": "YW5PYONVQ1JA5L2KJQSYGFRQBCCMU5NVMBVB4TM53XMYM2TG",
+		"venuesUrl": "https://api.foursquare.com/v2/venues",
+		"version": "20140806"
+	}
 }

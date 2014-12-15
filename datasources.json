@@ -1,9 +1,13 @@
 {
-	"userdb": {
-		"name": "userdb",
-		"connector": "mongodb",
-		"hostname": "3zixty:zimpli5app@ds053190.mongolab.com",
+	"mongodb": {
 		"port": 53190,
-		"database": "3zixty"
+		"database": "3zixty",
+		"name": "mongodb",
+		"connector": "mongodb",
+		"hostname": "3zixty:zimpli5app@ds053190.mongolab.com"
+	},
+	"foursquare": {
+		"name": "foursquare",
+		"connector": "rest"
 	}
 }

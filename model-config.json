@@ -6,31 +6,39 @@
 		]
 	},
 	"user": {
-		"dataSource": "userdb",
+		"dataSource": "mongodb",
 		"public": true
 	},
 	"accessToken": {
-		"dataSource": "userdb",
+		"dataSource": "mongodb",
 		"public": true
 	},
 	"userCredential": {
-		"dataSource": "userdb",
+		"dataSource": "mongodb",
 		"public": true
 	},
 	"userIdentity": {
-		"dataSource": "userdb",
+		"dataSource": "mongodb",
 		"public": true
 	},
 	"ACL": {
-		"dataSource": "userdb",
+		"dataSource": "mongodb",
 		"public": false
 	},
 	"RoleMapping": {
-		"dataSource": "userdb",
+		"dataSource": "mongodb",
 		"public": false
 	},
 	"Role": {
-		"dataSource": "userdb",
+		"dataSource": "mongodb",
+		"public": false
+	},
+	"places": {
+		"dataSource": "foursquare",
+		"public": true
+	},
+	"placeCategories": {
+		"dataSource": "mongodb",
 		"public": false
 	}
 }
